@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import { Row, Table } from 'tinper-bee';
 
 @observer
-class Navbar extends Component{
+class Users extends Component{
     render () {
         return (
+            <Row>
 
+            </Row>
         )
     }
 }
 
-export default Navbar;
+export default Users;

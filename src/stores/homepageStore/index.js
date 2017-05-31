@@ -1,23 +1,38 @@
 import { observable, action } from 'mobx';
 
 class HomepageStore {
-    @observable username;
-    @observable password;
+    @observable toggle;
+    @observable currentMenuItem;
+    @observable expanded;
+    @observable breadcrumbItem;
 
     constructor() {
-        this.username = '';
-        this.password = '';
+        this.toggle = false;
+        this.breadcrumbItem = [{
+            name: '首页'
+        },{
+            name: '控制台'
+        }]
     }
 
-    @action changeUsername = (value) => {
-        this.username = value;
+    @action changeToggle = () => {
+        this.toggle = !this.toggle;
     }
-    @action changePassword = (value) => {
-        this.password = value;
+
+    @action changeMenuItem = (e) => {
+        this.currentMenuItem = e.key;
+    }
+
+    @action changeExpand = (value) => {
+        this.expanded = value;
+    }
+
+    @action changeBreadcrumb = () => {
+        this.breadcrumbItem
     }
 }
 
-const homepageStore = new LoginHomepageStoreStore();
+const homepageStore = new HomepageStore();
 
 export default homepageStore;
 export { HomepageStore };
